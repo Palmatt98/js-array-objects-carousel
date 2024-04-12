@@ -69,14 +69,17 @@ images.forEach((curImage) => {
 // querySelectorAll mi torna un array di elementi HTML
 const imageElements = document.querySelectorAll(".my-carousel-item");
 console.log("imageElements: ", imageElements);
+const littleImageElements = document.querySelectorAll(".my-thumbnails > .my-thumbnail");
 let activeIndex = 0;
 imageElements[activeIndex].classList.add("active");
+littleImageElements[activeIndex].classList.add("active")
 
 //al click devo passare active alla immagine successiva
 document.querySelector(".my-next").addEventListener("click", goNext);
 
 function goNext() {
 	imageElements[activeIndex].classList.remove("active");
+  littleImageElements[activeIndex].classList.remove("active")
 	//incremento l'indice
 	if (activeIndex === imageElements.length - 1) {
 		activeIndex = 0;
@@ -85,11 +88,13 @@ function goNext() {
 	}
 	// aggiungo la classe active alla prossima immagine
 	imageElements[activeIndex].classList.add("active");
+  littleImageElements[activeIndex].classList.add("active");
 }
 document.querySelector(".my-previous").addEventListener("click", goBack);
 
 function goBack() {
 	imageElements[activeIndex].classList.remove("active");
+	littleImageElements[activeIndex].classList.remove("active");
 	//incremento l'indice
 	if (activeIndex === 0) {
 		activeIndex = imageElements.length - 1;
@@ -98,4 +103,5 @@ function goBack() {
 	}
 	// aggiungo la classe active alla prossima immagine
 	imageElements[activeIndex].classList.add("active");
+  littleImageElements[activeIndex].classList.add("active");
 }
